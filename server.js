@@ -10,7 +10,7 @@ import { v4 as uuidv4 } from 'uuid';
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 8000; // Provide a default port number if PORT is not defined
+const PORT = process.env.PORT || 8000;
 
 app.use(cors());
 app.use(bodyParser.json({ extended: true }));
@@ -25,13 +25,13 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 app.listen(PORT, () => console.log(`Server is running successfully on PORT ${PORT}`));
-
+console.log(process.version);
 DefaultData();
 
 app.use('/', router);
 
-export let paytmMerchantKey = process.env.PAYTM_MERCHANT_KEY;
-export let paytmParams = {
+export const paytmMerchantKey = process.env.PAYTM_MERCHANT_KEY;
+export const paytmParams = {
   MID: process.env.PAYTM_MID,
   WEBSITE: process.env.PAYTM_WEBSITE,
   CHANNEL_ID: process.env.PAYTM_CHANNEL_ID,
@@ -43,3 +43,5 @@ export let paytmParams = {
   EMAIL: 'kunaltyagi@gmail.com',
   MOBILE_NO: '1234567852'
 };
+
+

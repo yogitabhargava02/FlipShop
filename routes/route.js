@@ -9,4 +9,8 @@ router.get('/products', getProducts);
 router.get('/product/:id', getProductById );
 router.post('/payment', addPaymentGateway);
 router.post('/callback', paymentResponse );
+router.get('/api/environment', (req, res) => {
+    const { BASE_URL } = process.env;
+    res.json({ BASE_URL });
+  });
 export default router;
